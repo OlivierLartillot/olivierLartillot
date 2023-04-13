@@ -1,19 +1,123 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" data-random-animation="false" data-animation="36">
     <head>
-        <meta charset="UTF-8">
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="keywords" content="vcard, resume, personal, portfolio, cv, card, responsive" />
+        <meta name="description" content="vCard / Resume / Personal / Portfolio Template" />
+        <meta name="author" content="cosmos-themes" />
         <title>{% block title %}Welcome!{% endblock %}</title>
         <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
         {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
+        <!--Favicons-->
+        <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+        
         {% block stylesheets %}
             {{ encore_entry_link_tags('app') }}
+        <!--Plugins Css-->
+        <link rel="stylesheet" href="css/plugins.css">
+        <!--Main Styles Css-->
+        <link rel="stylesheet" href="css/style-light.css">
+        <!--Color Css-->
+        <link rel="stylesheet" href="css/blue-color.css">
         {% endblock %}
 
         {% block javascripts %}
             {{ encore_entry_script_tags('app') }}
+                    <!--Modernizr Js-->
+        <script src="js/modernizr.js"></script>
         {% endblock %}
     </head>
     <body>
-        {% block body %}{% endblock %}
+
+<!--Preloader Start-->
+        <div class="preloader">
+            <div class="loader">
+                <!--Your Name-->
+                <h4>Olivier Lartillot</h4>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        <!--Preloader End-->
+
+
+        <div id="page">
+
+
+            <!--Header Start-->
+            <header>
+                <div class="header-content">
+
+                    <!--Mobile Header-->
+                    <div class="header-mobile">
+                        <a class="header-toggle"><i class="fas fa-bars"></i></a>
+                        <h2>Olivier Lartillot</h2>
+                    </div>
+
+                    <!--Main Header-->
+                    <div class="header-main" data-simplebar>
+                        <div class="image-container">
+                            <h2 class="header-name">O. Lartillot</h2>
+                            <img src="img/olivWeb500_500.png" alt="profile-pic">
+                        </div>
+
+                        <!--Nav Menus-->
+
+                        {# Si on est dans /blog-details, on est dans une page a part #}
+                        {% set urlBase = "" %}
+                        {% if app.request.pathInfo == '/blog-details' %} 
+                            {% set urlBase = path('app_home') %}
+                        {% endif %}
+
+                        <nav class="nav-menu">
+                            <ul>
+                                <li><a href="{{urlBase}}#home" class="pt-link active"><span class="nav-menu-icon"><i class="lnr lnr-home"></i></span>Accueil </a> </li>
+                                <li><a href="{{urlBase}}#services" class="pt-link"><span class="nav-menu-icon"><i class="lnr lnr-magic-wand"></i></span>Services </a> </li>
+                                <li><a href="{{urlBase}}#blog" class="pt-link"><span class="nav-menu-icon"><i class="lnr lnr-book"></i></span>Réalisations</a></li>
+                                <li><a href="{{urlBase}}#portfolio" class="pt-link"><span class="nav-menu-icon"><i class="lnr lnr-briefcase"></i></span>Portfolio</a></li>
+                                <li><a href="{{urlBase}}#about" class="pt-link"><span class="nav-menu-icon"><i class="lnr lnr-user"></i></span>A propos</a></li>
+                                <li><a href="{{urlBase}}#resume" class="pt-link"><span class="nav-menu-icon"><i class="lnr lnr-license"></i></span>CV</a></li>
+                                <li><a href="{{urlBase}}#contact" class="pt-link"><span class="nav-menu-icon"><i class="lnr lnr-envelope"></i></span>Contact</a></li>
+                            </ul>
+                        </nav>
+
+                        <!--Nav Footer-->
+                        <div class="nav-footer">
+                            <!--Social Links-->
+                            <ul class="social">
+                                <li><a href="#"><i class="fab fa-facebook-square"></i></a></li>
+                                <li><a href="#"><i class="fab fa-twitter-square"></i></a></li>
+                                <li><a href="#"><i class="fab fa-youtube-square"></i></a></li>
+                                <li><a href="#"><i class="fab fa-dribbble-square"></i></a></li>
+                                <li><a href="#"><i class="fab fa-behance-square"></i></a></li>
+                            </ul>
+                            <!--Copyright Text-->
+                            <div class="copy">
+                                <p>2021 &copy; Cosmos-Themes.<br>All Right Reserved.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </header>
+            <!--Header End-->
+
+        {% block body %}
+        
+        
+        
+        
+        
+        
+        
+        {% endblock %}
     </body>
 </html>
+
