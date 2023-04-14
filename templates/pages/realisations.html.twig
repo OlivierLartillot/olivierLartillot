@@ -11,8 +11,8 @@
         <div class="row blogs-masonry">
 
             {% for realisation in listeDesRealisations %}
-                    <div class="col-lg-4 col-sm-6">
-                        <a href="{{ path('app_realisation_detail',{'id': realisation.id }) }}" class="blog-item">
+                    <div class="col-lg-4 col-sm-6 ">
+                        <a href="{{ path('app_realisation_detail',{'id': realisation.id }) }}" class="blog-item rounded shadow">
                             <div class="blog-image">
                                 <img src="img/realisations/thumbnails/{{ realisation.thumbnail }}" alt="{{ realisation.title }}">
                             </div>

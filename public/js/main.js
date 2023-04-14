@@ -164,20 +164,20 @@ $(document).ready(function() {
     /*======== Skills Progress Animation ========*/
     if($('.skills').length > 0) {
 
-        var el = new SimpleBar($('#services .simplebar-content-wrapper')[0]).getScrollElement();
+        var el = new SimpleBar($('#about .simplebar-content-wrapper')[0]).getScrollElement();
 
         //When scrolled to Progress
         $(el).on('scroll', function() {
             animateProgress();
         });
 
-        //When services Section have page-active on page load
-        if($('#services').hasClass('page-active')) {
+        //When about Section have page-active on page load
+        if($('#about').hasClass('page-active')) {
             animateProgress();
         }
 
-        //When services Link is clicked
-        $('a[href="#services"]').on('click', function(){
+        //When about Link is clicked
+        $('a[href="#about"]').on('click', function(){
             animateProgress();
         });
 

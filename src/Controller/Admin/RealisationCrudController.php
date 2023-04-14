@@ -50,7 +50,7 @@ class RealisationCrudController extends AbstractCrudController
             TextField::new('subtitle'),
             TextField::new('date'),
             ImageField::new('thumbnail')->setUploadDir($uploadPathThumbnail)->setBasePath($pathThumbnail)->setHelp('<ul><li>Une image carrée rendra mieux qu\'une image trop large ou trop haute ! </li><li>supprimer l\'image la supprimera définitivement</li></ul>'),
-            ImageField::new('FullImage')->setUploadDir($uploadPathFullImage)->setBasePath($pathFullImage)->setHelp('<ul><li>Une image carrée rendra mieux qu\'une image trop large ou trop haute ! </li><li>supprimer l\'image la supprimera définitivement</li></ul>'),
+            ImageField::new('fullImage')->setUploadDir($uploadPathFullImage)->setBasePath($pathFullImage)->setHelp('<ul><li>Une image carrée rendra mieux qu\'une image trop large ou trop haute ! </li><li>supprimer l\'image la supprimera définitivement</li></ul>'),
             TextEditorField::new('content'),
             TextField::new('siteLink'),
             BooleanField::new('online'),

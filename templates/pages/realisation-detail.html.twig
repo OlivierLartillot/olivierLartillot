@@ -27,229 +27,89 @@
                             <!--Blog Content Start-->
                             <div class="blog-content col-md-10 offset-md-1">
 
-                            <a href="{{ path('app_realisation_detail', {'id':realisation.id+1})}}">suivant</a> | précédent
-
-                            {% if realisation.isonline  %}
-                            <div class="row justify-content-center ">
-                                <div class="resume-button mt-10 mb-30">
-                                    <a class="btn-main" href="{{ realisation.siteLink }}" target="blank">Voir le site web</a>
+                                {% if realisation.isonline  %}
+                                <div class="row justify-content-center ">
+                                    <div class="resume-button mt-5 mb-30">
+                                        <a class="btn-main" href="{{ realisation.siteLink }}" target="blank">Voir le site web</a>
+                                    </div>
                                 </div>
-                            </div>
-                            {% endif %}
+                                {% endif %}
 
-
-
-
-                                <section class="row">
-
-                                    <aside class="col-lg-4">
-                                        <table  class="table">
-                                            <tr>
-                                                <th scope="row">Type</th>
-                                                <td>{{ realisation.typeOfWork }}</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">Pays</th>
-                                                <td>{{ realisation.country }}</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">Stack</th>
-                                                <td>
-                                                    {% for key, stack in realisation.stack %}
-                                                        {{ stack }} 
-                                                        {% if (key + 1) < (realisation.stack|length) %}, {% endif %}
-
-                                                    {% endfor %}
-                                                
-                                                </td>
-                                            </tr>
-                                        </table>
-
-                                    </aside>
-                                    <article class="col-lg-8">
-                                    
-                                        {{ realisation.content|raw}}
-                                    
-                                    </article>
                                 
-                                </section>
 
-
-                            </div>
-                            <!--Blog Content End-->
-
-
-        <!--Clients Row Start-->
-        <div class="row clients mb-70">
-            <div class="col-md-12">
-                <div class="subheading">
-                    <h3>Clients</h3>
-                </div>
-            </div>
-
-            <div class="owl-carousel owl-theme">
-
-                <!--Client Logo-->
-                <div class="client-logo">
-                    <a href="#">
-                        <img id="myImg" src="img/background/pc_grand.jpg" alt="">
-                    </a>
-                </div>
-
-                <!--Client Logo-->
-                <div class="client-logo">
-                    <a href="#">
-                        <img src="img/realisations/cantaloube.png" alt="">
-                    </a>
-                </div>
-
-                <!--Client Logo-->
-                <div class="client-logo">
-                    <a href="#">
-                        <img src="img/clients/client-03.png" alt="">
-                    </a>
-                </div>
-
-                <!--Client Logo-->
-                <div class="client-logo">
-                    <a href="#">
-                        <img src="img/clients/client-04.png" alt="">
-                    </a>
-                </div>
-
-                <!--Client Logo-->
-                <div class="client-logo">
-                    <a href="#">
-                        <img src="img/clients/client-05.png" alt="">
-                    </a>
-                </div>
-
-                <!--Client Logo-->
-                <div class="client-logo">
-                    <a href="#">
-                        <img src="img/clients/client-06.png" alt="">
-                    </a>
-                </div>
-
-                <!--Client Logo-->
-                <div class="client-logo">
-                    <a href="#">
-                        <img src="img/clients/client-07.png" alt="">
-                    </a>
-                </div>
-
-                <!--Client Logo-->
-                <div class="client-logo">
-                    <a href="#">
-                        <img src="img/clients/client-08.png" alt="">
-                    </a>
-                </div>
-
-                <!--Client Logo-->
-                <div class="client-logo">
-                    <a href="#">
-                        <img src="img/clients/client-09.png" alt="">
-                    </a>
-                </div>
-
-            </div>
-        </div>
-        <!--Clients Row End-->                    
-
-
-
-
-                            <!--Blog Comments Start-->
-                            <div class="blog-comments col-md-8 offset-md-2">
-                                <h4 class="mb-40">Post Comments</h4>
-                                <ul class="comment-list">
-
-                                    <li class="comment">
-
-                                        <div class="author-img">
-                                            <img src="img/blog/authors/author-1.jpg" alt="">
-                                        </div>
-                                        <div class="comment-text">
-                                            <span class="reply"><a href="#">Reply</a></span>
-                                            <h6 class="author">Jane Doe</h6>
-                                            <span class="date">June 10, 2018 at 5:39 am</span>
-                                            <p>Deep v cliche lomo biodiesel Neutra selfies. Shorts fixie consequat flexitarian four loko </p>
-                                        </div>
-
-                                    </li>
-
-                                    <li class="comment">
-
-                                        <div class="author-img">
-                                            <img src="img/blog/authors/author-2.jpg" alt="">
-                                        </div>
-                                        <div class="comment-text">
-                                            <span class="reply"><a href="#">Reply</a></span>
-                                            <h6 class="author">Jane Doe</h6>
-                                            <span class="date">June 10, 2018 at 5:39 am</span>
-                                            <p>Deep v cliche lomo biodiesel Neutra selfies. Shorts fixie consequat flexitarian four loko </p>
-                                        </div>
-
-                                    </li>
-
-                                    <li class="comment">
-
-                                        <div class="author-img">
-                                            <img src="img/blog/authors/author-3.jpg" alt="">
-                                        </div>
-                                        <div class="comment-text">
-                                            <span class="reply"><a href="#">Reply</a></span>
-                                            <h6 class="author">Jane Doe</h6>
-                                            <span class="date">June 10, 2018 at 5:39 am</span>
-                                            <p>Deep v cliche lomo biodiesel Neutra selfies. Shorts fixie consequat flexitarian four loko </p>
-                                        </div>
-
-                                    </li>
-
-                                </ul>
-                            </div>
-                            <!--Blog Comments End-->
-
-                            <div class="comment-form col-lg-8 offset-lg-2">
-
-                                <h4 class="mt-40 mb-40">Leave A Reply</h4>
-                                <form action="#">
-
-                                    <div class="row">
-                                        <!--Name Field-->
-                                        <div class="col-md-6 mb-50">
-                                            <span class="input">
-                                                <input class="input__field" type="text" id="name" name="name" required/>
-                                                <label class="input__label" for="name">Name</label>
-                                            </span>
-                                        </div>
-
-                                        <!--Email Field-->
-                                        <div class="col-md-6 mb-50">
-                                            <span class="input">
-                                                <input class="input__field" type="text" id="email" name="email" required/>
-                                                <label class="input__label" for="email">Email</label>
-                                            </span>
-                                        </div>
-
-                                        <!--Message Box-->
-                                        <div class="col-md-12 mb-30">
-                                            <span class="input">
-                                                <textarea  class="input__field" id="message" name="message" rows="5" required></textarea>
-                                                <label class="input__label" for="message">Your Comment</label>
-                                            </span>
-                                        </div>
-
-                                        <!--Submit Button-->
-                                        <div class="col-md-12">
-                                            <button class="btn-main">Post Comment</button>
-                                        </div>
-
+                                <section class="row mt-30 py-5 px-3 justify-content-center bg-white  border rounded">
+                                    <article class="col-lg-12">
+                                        {{ realisation.content|raw}}
+                                    </article>
+                                    <div class="col-12">
+                                        <hr>
+                                    </div>
+                                    <div class="mt-40 mb-30 text-center">
+                                        <h2>Coté Technique</h2>
+                                        
+                                    </div>
+                                    
+                                    <div class="table-responsive">
+                                        <table  class="table">
+                                            <thead class="table-dark">
+                                                <tr>
+                                                    <th scope="col">Type</th>
+                                                    <th scope="col">Pays</th>
+                                                    <th scope="col">Stack</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>{{ realisation.typeOfWork }}</td>
+                                                    <td>{{ realisation.country }}</td>
+                                                    <td>
+                                                        {% for key, stack in realisation.stack %}
+                                                            {{ stack }} 
+                                                        {% if (key + 1) < (realisation.stack|length) %}, {% endif %}
+                                                    {% endfor %}
+                                                    
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
                                     </div>
 
-                                </form>
 
+                                    
+                                        <article class="col-lg-12">
+                                            <div class="card p-3 text-center">
+                                                <b>
+                                                    Design créé entièrement<br>
+                                    
+                                                    Adaptation du fichier excel comportant les données pour l'envoyer dans la base<br>
+                                        
+                                                    Zone d'administration<br>
+                                        
+                                                    Google recaptacha v.3<br>
+                                                    Formulaire de contact relié au compte google<br>
+                                                </b>
+                                            </div>
+                                        </article>
+
+
+
+
+                                    <div class="mt-40 text-center"> 
+                                        <a class="btn bg-secondary text-white shadow mx-2" href="{{ path('app_realisation_detail', {'id': listId[precedent]})}}">
+                                        <i class="lnr lnr-arrow-left"></i> Précédent
+                                        </a> 
+                                        <a class="btn bg-secondary text-white shadow mx-2" href="{{ path('app_realisation_detail', {'id': listId[suivant]})}}">
+                                        Suivant <i class="lnr lnr-arrow-right"></i>
+                                        </a> 
+                                    </div>
+
+                                
+                                </section>
                             </div>
+                            <!--Blog Content End-->
+                                    
+
+                            
 
                         </div>
                     </div>
@@ -257,7 +117,7 @@
 
             </div>
 
-        </div>
+        
 
 
 
