@@ -1,40 +1,82 @@
 <!--Porfolio Section Start-->
-<section id="services" class="about-section pt-page">
+<section id="services" class="about-section pt-page" >
     <div class="section-container">
 
         <!--Page Heading-->
-        <div class="page-heading">
+        <div class="page-heading p-3">
             <span class="icon"><i class="lnr lnr-magic-wand"></i></span>
             <h2>Services</h2>
         </div>
 
+        <!-- About Info Row Start-->
+        <div class="row about mt-30 mb-70">
+            <div class="col-lg-8">
+                <!--Personal Intro-->
+                <h3 class="mb-20">Des Services Adaptés à Vos Besoins</h3>
+                <p>Vous avez un projet ? Qu'il soit professionnel ou personnel, je vous propose un service adapté à vos besoins. Du simple site vitrine à l'application qui vous simplifie votre quotidien, nous étudions ensemble la faisabilité du projet.</p>
+                <div class="resume-button mt-30 mb-30 text-center">
+                    <a class="btn bg-info text-white rounded" href="#realisations">Voir les réalisations</a>
+                </div>
+
+                <p>N'hésitez pas à me contacter ! Une première prise de contact ne vous engage à rien. Nous pourrons discuter du projet, des fonctionnalités, du contenu et du design et décider d'une éventuelle future collaboration.</p>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="about-info">
+                    <h3 class="mb-20">Contact</h3>
+                    <ul>
+                        <li><span class="title">Email</span><span class="value">example@example.com</span></li>
+                        <li><span class="title">Phone</span><span class="value">(+1) 123 456 7890</span></li>
+                    </ul>
+                    <div class="resume-button mt-30">
+                        <a class="btn-main rounded" href="#contact">Formulaire de contact</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
             <div class="col-md-12">
                 <div class="subheading">
-                    <h3>En bref</h3>
+                    <h3>Les services En bref</h3>
+                </div>
+            </div>
+            
+            
+            {% include 'composants/services.html.twig' %}
+
+
+            <div class="col-md-12 ">
+                <div class="subheading">
+                    <h3 class="mt-50">Les services En Détail</h3>
                 </div>
             </div>
 
-        {% include 'composants/services.html.twig' %}
-
-            <div class="col-md-12">
-                <div class="subheading">
-                    <h3>En Détail</h3>
-                </div>
-            </div>
-
-            <div class="row justify-content-around services mb-30 ">
+            <div id="sitesWeb" class="row justify-content-around services mb-30">
                 <!-- service item Start -->
-                <div class="card col-12 shadow p-3 my-3">
-                    <div class="service-item">
-                        <div class="icon">
-                            <i class="lnr lnr-laptop"></i>
+                <div class="card col-12 shadow p-3 my-3" style="background-color:rgba(255, 255, 255, 0.9);">
+                    <div >
+                        <div class="service-item">
+                            <div class="icon">
+                                <i class="lnr lnr-laptop"></i>
+                            </div>
+                            <div class="card-title">
+                                <h3> Sites Web</h3>
+                            </div>
                         </div>
        
-                        <div class="card-title">
-                            <h3> Sites Web</h3>
-                        </div>
                         <div class="card-content">
-                            <p>Je vous accompagne tout au long du processus ...</p>
+                            <p class="mb-3">Je travail essentiellement sur des sites vitrines, pour mettre en valeur votre activité sur le web. Portfolio, présentation de produits, formulaire de contact, tout ce dont vous avez besoin pour montrer votre savoir faire à votre communauté ou vos clients et communiquer avec eux.</p>
+                            <p>
+                                Pour choisir un design je vous propose de regarder ensemble des sites spécialisés car cela comporte plusieurs avantages :
+                                <ul>
+                                    <li>- En s'appuyant sur un design déjà créé, le site est plus rapide à développer et donc moins coûteux pour vous.</li>
+                                    <li>- Vous pouvez savoir directement quel rendu visuel aura votre site avant même la première ligne de code.</li>
+                                    <li>- Les designs sont fiables et réalisés par des professionnels de la partie visible d'un site, aussi appelée "front office" .</li>
+                                </ul>
+                            </p>
                         </div>
                     </div>
                 </div>

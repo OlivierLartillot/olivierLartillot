@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Realisation;
 use App\Repository\RealisationRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -9,7 +10,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class HomeController extends AbstractController
 {
-    #[Route('/home', name: 'app_home')]
+    #[Route('/', name: 'app_home')]
     public function index(RealisationRepository $realisationRepository): Response
     {
 
@@ -23,10 +24,12 @@ class HomeController extends AbstractController
         ]);
     }
 
-    #[Route('/blog-details', name: 'app_details')]
-    public function blogDetails(): Response
+    #[Route('/realisation/{id}', name: 'app_realisation_detail')]
+    public function blogDetails(Realisation $realisation ): Response
     {
-        return $this->render('pages/blog-light.html.twig', [
+        
+        return $this->render('pages/realisation-detail.html.twig', [
+            'realisation' => $realisation,
             'controller_name' => 'HomeController',
         ]);
     }

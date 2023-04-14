@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello HomeController!{% endblock %}
+{% block title %}Réalisation{% endblock %}
 
 {% block body %}
 
@@ -9,30 +9,31 @@
 
                 <div class="blog-page">
                     <div class="blog-image">
-                        <img src="img/blog/blog-page-img.jpg" alt="">
+                        {# <img src="{{asset('img/blog/blog-page-img.jpg')}}" alt=""> #}
+                        <img src="{{asset('img/realisations/thumbnails/'~realisation.thumbnail)}}" alt="">
                     </div>
                     <div class="blog-container">
                         <div class="row">
 
                             <!--Blog Heading Start-->
                             <div class="blog-heading col-md-8 offset-md-2">
-                                <span class="cat">Charcuterie & Volailles</span>
-                                <h1>La maison Cantloube </h1>
-                                <span class="blog-date">January 20, 2018</span>
+                                <span class="cat">{{ realisation.subtitle }}</span>
+                                <h1>{{ realisation.title }}</h1>
+                                <span class="blog-date">{{ realisation.date }}</span>
                             </div>
-                            <!--Blog Heading Start-->
-
-
-                           
+                            <!--Blog Heading Start-->                   
 
                             <!--Blog Content Start-->
                             <div class="blog-content col-md-10 offset-md-1">
 
+
+                            {% if realisation.isonline  %}
                             <div class="row justify-content-center ">
                                 <div class="resume-button mt-10 mb-30">
                                     <a class="btn-main" href="#">Voir le site web</a>
                                 </div>
                             </div>
+                            {% endif %}
 
 
 
@@ -258,12 +259,15 @@
 
         </div>
 
-        <!--Jquery JS-->
-        <script src="js/jquery.min.js"></script>
-        <!--Plugins JS-->
-        <script src="js/plugins.min.js"></script>
-        <!--Site Main JS-->
-        <script src="js/main.js"></script>
 
+
+    <!--Jquery JS-->
+    <script src="{{asset('js/jquery.min.js')}}"></script>
+    <!--Plugins JS-->
+    <script src="{{asset('js/plugins.min.js')}}"></script>
+    <!--Google Map Api-->
+    <script src="https://maps.google.com/maps/api/js?sensor=false"></script>
+    <!--Site Main JS-->
+    <script src="{{asset('js/main.js')}}"></script>
 
 {% endblock body %}

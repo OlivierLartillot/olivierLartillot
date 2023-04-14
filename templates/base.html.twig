@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-random-animation="false" data-animation="36">
+<html lang="en" data-random-animation="false" data-animation="19">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -16,17 +16,18 @@
         {% block stylesheets %}
             {{ encore_entry_link_tags('app') }}
         <!--Plugins Css-->
-        <link rel="stylesheet" href="css/plugins.css">
+        <link rel="stylesheet" href="{{asset('css/plugins.css')}}">
         <!--Main Styles Css-->
-        <link rel="stylesheet" href="css/style-light.css">
+        <link rel="stylesheet" href="{{asset('css/style-light.css')}}">
         <!--Color Css-->
-        <link rel="stylesheet" href="css/blue-color.css">
+        <link rel="stylesheet" href="{{asset('css/blue-color.css')}}">
         {% endblock %}
 
         {% block javascripts %}
             {{ encore_entry_script_tags('app') }}
                     <!--Modernizr Js-->
-        <script src="js/modernizr.js"></script>
+        <script src="{{asset('js/modernizr.js')}}"></script>
+        
         {% endblock %}
     </head>
     <body>
@@ -65,25 +66,26 @@
                     <div class="header-main" data-simplebar>
                         <div class="image-container">
                             <h2 class="header-name">O. Lartillot</h2>
-                            <img src="img/olivWeb500_500.png" alt="profile-pic">
+                            <img src="{{asset('img/photoSiteOlivier2.png')}}" alt="profile-pic">
                         </div>
 
                         <!--Nav Menus-->
 
                         {# Si on est dans /blog-details, on est dans une page a part #}
                         {% set urlBase = "" %}
-                        {% if app.request.pathInfo == '/blog-details' %} 
+                        {% if app.request.attributes.get('_route') == 'app_realisation_detail' %} 
                             {% set urlBase = path('app_home') %}
                         {% endif %}
 
                         <nav class="nav-menu">
                             <ul>
+                                <li>bla{{urlBase}}</li>
                                 <li><a href="{{urlBase}}#home" class="pt-link active"><span class="nav-menu-icon"><i class="lnr lnr-home"></i></span>Accueil </a> </li>
                                 <li><a href="{{urlBase}}#services" class="pt-link"><span class="nav-menu-icon"><i class="lnr lnr-magic-wand"></i></span>Services </a> </li>
                                 <li><a href="{{urlBase}}#realisations" class="pt-link"><span class="nav-menu-icon"><i class="lnr lnr-book"></i></span>Réalisations</a></li>
                                 <li><a href="{{urlBase}}#portfolio" class="pt-link"><span class="nav-menu-icon"><i class="lnr lnr-briefcase"></i></span>Portfolio</a></li>
                                 <li><a href="{{urlBase}}#about" class="pt-link"><span class="nav-menu-icon"><i class="lnr lnr-user"></i></span>A propos</a></li>
-                                <li><a href="{{urlBase}}#resume" class="pt-link"><span class="nav-menu-icon"><i class="lnr lnr-license"></i></span>CV</a></li>
+                                <li><a href="{{urlBase}}#resume" class="pt-link"><span class="nav-menu-icon"><i class="lnr lnr-license"></i></span>CV Online</a></li>
                                 <li><a href="{{urlBase}}#contact" class="pt-link"><span class="nav-menu-icon"><i class="lnr lnr-envelope"></i></span>Contact</a></li>
                             </ul>
                         </nav>
@@ -111,13 +113,9 @@
 
         {% block body %}
         
-        
-        
-        
-        
-        
-        
         {% endblock %}
+
+
     </body>
 </html>
 
