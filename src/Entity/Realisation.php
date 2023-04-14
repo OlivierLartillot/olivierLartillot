@@ -46,6 +46,9 @@ class Realisation
     #[ORM\ManyToMany(targetEntity: TechnicalStack::class, inversedBy: 'realisations')]
     private Collection $stack;
 
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $siteLink = null;
+
     public function __construct()
     {
         $this->stack = new ArrayCollection();
@@ -184,6 +187,18 @@ class Realisation
     public function removeStack(TechnicalStack $stack): self
     {
         $this->stack->removeElement($stack);
+
+        return $this;
+    }
+
+    public function getSiteLink(): ?string
+    {
+        return $this->siteLink;
+    }
+
+    public function setSiteLink(?string $siteLink): self
+    {
+        $this->siteLink = $siteLink;
 
         return $this;
     }

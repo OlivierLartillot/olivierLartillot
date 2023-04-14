@@ -10,7 +10,8 @@
                 <div class="blog-page">
                     <div class="blog-image">
                         {# <img src="{{asset('img/blog/blog-page-img.jpg')}}" alt=""> #}
-                        <img src="{{asset('img/realisations/thumbnails/'~realisation.thumbnail)}}" alt="">
+                        {# 1920 x 700 #}
+                        <img src="{{asset('img/realisations/full/'~realisation.fullImage)}}" alt="{{ realisation.title }}">
                     </div>
                     <div class="blog-container">
                         <div class="row">
@@ -26,11 +27,12 @@
                             <!--Blog Content Start-->
                             <div class="blog-content col-md-10 offset-md-1">
 
+                            <a href="{{ path('app_realisation_detail', {'id':realisation.id+1})}}">suivant</a> | précédent
 
                             {% if realisation.isonline  %}
                             <div class="row justify-content-center ">
                                 <div class="resume-button mt-10 mb-30">
-                                    <a class="btn-main" href="#">Voir le site web</a>
+                                    <a class="btn-main" href="{{ realisation.siteLink }}" target="blank">Voir le site web</a>
                                 </div>
                             </div>
                             {% endif %}
@@ -44,31 +46,29 @@
                                         <table  class="table">
                                             <tr>
                                                 <th scope="row">Type</th>
-                                                <td>Site Web</td>
+                                                <td>{{ realisation.typeOfWork }}</td>
                                             </tr>
                                             <tr>
                                                 <th scope="row">Pays</th>
-                                                <td>France</td>
+                                                <td>{{ realisation.country }}</td>
                                             </tr>
                                             <tr>
                                                 <th scope="row">Stack</th>
-                                                <td>Symfony, Twig, html, javascript</td>
+                                                <td>
+                                                    {% for key, stack in realisation.stack %}
+                                                        {{ stack }} 
+                                                        {% if (key + 1) < (realisation.stack|length) %}, {% endif %}
+
+                                                    {% endfor %}
+                                                
+                                                </td>
                                             </tr>
                                         </table>
 
                                     </aside>
                                     <article class="col-lg-8">
                                     
-                                        <p>Consectetur rerum veniam vitae sequi voluptatibus unde soluta dolorum. Sint maxime ducimus tenetur vitae corrupti saepe. Veniam sit ea aliquid odit officiis. Quisquam at labore eum commodi in eius In quisquam a a eaque fuga? Debitis magnam deserunt libero voluptates esse at possimus? Voluptatum voluptates exercitationem voluptatum accusantium doloremque nihil, nihil molestias voluptatibus, minus nostrum, aliquid Quisquam neque fugiat quos veniam facere Dicta eaque laboriosam ut voluptas ipsum Officiis nisi maxime soluta optio ipsum quam Dolores aperiam explicabo sed quas unde laborum molestiae. Porro cum incidunt enim minus nisi excepturi rerum! Exercitationem quia excepturi reiciendis illum velit! Consequatur tempora nihil </p>
-                                        <p>
-                                            Sit exercitationem accusamus repudiandae libero natus vero aut Consectetur magni totam sint animi expedita? Eos consequatur facilis corrupti voluptatibus asperiores dolorum vitae ipsa laudantium repellat Voluptates voluptates corporis illum ut asperiores possimus officiis! Laborum rerum eaque minus harum doloremque debitis Ducimus sed commodi commodi illo aliquam. Magnam ipsa blanditiis blanditiis veniam aut Magni unde voluptates culpa dicta placeat! Incidunt delectus beatae excepturi perspiciatis libero praesentium illo Atque sit asperiores unde dolorem cupiditate, nostrum Alias illum voluptate eos commodi modi? Minus est fugiat labore earum obcaecati, omnis. Dicta fugit quod harum eius atque? Exercitationem impedit deleniti quidem voluptas eum cupiditate Consectetur
-                                        </p>
-                                        <blockquote>
-                                            Consectetur omnis eveniet possimus est necessitatibus. Dolorum magnam officiis ad fugit cumque? Voluptatibus laboriosam incidunt voluptatum beatae dignissimos, nostrum iusto error Optio quam modi adipisci cumque delectus Voluptates iusto doloremque.
-                                        </blockquote>
-                                        <p>
-                                            Dolor amet culpa esse cum in? Id ab neque ipsa sapiente impedit doloremque quod. Velit veniam in odio voluptatem doloribus Minus laborum voluptates sed ea vel? Aspernatur in quos nulla veniam tempore In quibusdam reprehenderit maiores iste ab Est quae magni nemo repudiandae soluta? Eius qui veniam voluptatem iure molestiae
-                                        </p>
+                                        {{ realisation.content|raw}}
                                     
                                     </article>
                                 

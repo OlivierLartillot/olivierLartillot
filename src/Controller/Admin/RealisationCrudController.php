@@ -29,22 +29,30 @@ class RealisationCrudController extends AbstractCrudController
         // gestion local en env dev ou ligne prod
 
         if ($_ENV['APP_ENV']  == 'dev' ){
-            $uploadPath = $package->getUrl('public\img\realisations\thumbnails\\');  
+            $uploadPathThumbnail = $package->getUrl('public\img\realisations\thumbnails\\');  
         } else{
-            $uploadPath = $package->getUrl('public/img/realisations/thumbnails/');  
+            $uploadPathThumbnail = $package->getUrl('public/img/realisations/thumbnails/');  
         }
 
-        $path = $package->getUrl('/img/realisations/thumbnails');
+        $pathThumbnail = $package->getUrl('/img/realisations/thumbnails');
 
+        if ($_ENV['APP_ENV']  == 'dev' ){
+            $uploadPathFullImage = $package->getUrl('public\img\realisations\full\\');  
+        } else{
+            $uploadPathFullImage = $package->getUrl('public/img/realisations/full/');  
+        }
+
+        $pathFullImage = $package->getUrl('/img/realisations/full');
 
         return [
             IdField::new('id')->hideOnForm(),
             TextField::new('title'),
             TextField::new('subtitle'),
             TextField::new('date'),
-            ImageField::new('thumbnail')->setUploadDir($uploadPath)->setBasePath($path)->setHelp('<ul><li>Une image carrée rendra mieux qu\'une image trop large ou trop haute ! </li><li>supprimer l\'image la supprimera définitivement</li></ul>'),
-            TextField::new('FullImage'),
+            ImageField::new('thumbnail')->setUploadDir($uploadPathThumbnail)->setBasePath($pathThumbnail)->setHelp('<ul><li>Une image carrée rendra mieux qu\'une image trop large ou trop haute ! </li><li>supprimer l\'image la supprimera définitivement</li></ul>'),
+            ImageField::new('FullImage')->setUploadDir($uploadPathFullImage)->setBasePath($pathFullImage)->setHelp('<ul><li>Une image carrée rendra mieux qu\'une image trop large ou trop haute ! </li><li>supprimer l\'image la supprimera définitivement</li></ul>'),
             TextEditorField::new('content'),
+            TextField::new('siteLink'),
             BooleanField::new('online'),
             TextField::new('typeOfWork'),
             TextField::new('Country'),
