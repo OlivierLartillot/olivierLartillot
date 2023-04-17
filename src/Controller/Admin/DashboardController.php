@@ -46,13 +46,14 @@ class DashboardController extends AbstractDashboardController
     public function configureMenuItems(): iterable
     {
         yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');
-        yield MenuItem::linkToCrud('Réalisations', 'fas fa-list', Realisation::class);
-        yield MenuItem::linkToCrud('Stack', 'fas fa-list', TechnicalStack::class);
+        yield MenuItem::linkToCrud('Réalisations', 'fas fa-pencil', Realisation::class);
+        yield MenuItem::linkToCrud('Stack', 'fas fa-rocket', TechnicalStack::class);
 
-
-        yield MenuItem::linkToCrud('Portfolio', 'fas fa-list', Portfolio::class);
-        yield MenuItem::linkToCrud('class', 'fas fa-list', PortfolioClass::class);
-        yield MenuItem::linkToCrud('tag', 'fas fa-list', PortfolioTag::class);
-        
+        yield MenuItem::subMenu('Gestion Portfolio', 'fa-solid fa-image') 
+            ->setSubItems([
+                MenuItem::linkToCrud('Portfolio', 'fas fa-window-restore', Portfolio::class),
+                MenuItem::linkToCrud('class', 'fas fa-file', PortfolioClass::class),
+                MenuItem::linkToCrud('tag', 'fas fa-tags', PortfolioTag::class),
+            ]);
     }
 }

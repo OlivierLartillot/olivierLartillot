@@ -118,3 +118,7 @@ blockquote {
 .blog-page .blog-heading .cat {
     color: #00A3E1;
 }
+
+span.protectionspam{
+    display: none;
+  }
