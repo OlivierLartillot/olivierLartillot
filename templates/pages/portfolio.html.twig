@@ -13,9 +13,14 @@
             <div class="col-md-12 portfolio-filter text-center">
                 <ul>
                     <li class="active" data-filter="*">All</li>
-                    <li data-filter=".Symfony">Symfony</li>
+                     {% for tag in tags %}
+                         <li data-filter=".{{tag.slug}}">{{tag}}</li>
+                     {% endfor %}
+
+
+{#                    
                     <li data-filter=".design">Design</li>
-                    <li data-filter=".graphic">Graphic</li>
+                    <li data-filter=".graphic">Graphic</li> #}
                 </ul>
             </div>
         </div>
@@ -23,148 +28,32 @@
         <!--Portfolio Items-->
         <div class="row portfolio-items mb-50">
 
-            <!--Portfolio Item-->
-            <div class="item col-lg-4 col-sm-6 Symfony graphic">
-                <a class="image-link" href="img/realisations/cantaloube.png">
+            {% for portfolio in portfolios %}
+            <div class="item col-lg-4 col-sm-6 
+            {% for key,tag in portfolio.portfolioTags %}{{ tag.slug }} {% endfor %}">
+                <a class="{{ portfolio.portfolioClass }}" href="img/portfolio/{{ portfolio.image }}">
                     <figure>
-                        <img src="img/realisations/cantaloube.png" alt="">
+                        <img src="img/portfolio/{{ portfolio.image }}" alt="{{ portfolio.title }}">
                         <figcaption>
-                            <h4>Book Design</h4>
-                            <p>Symfony, Graphic</p>
-                        </figcaption>
-                    </figure>
-                </a>
-            </div>
+                            <h4>{{ portfolio.title }}</h4>
+                            <p>
+                                {% for key,tag in portfolio.portfolioTags %}
+                                    {{ tag }}
+                                    {% if (key + 1) < (portfolio.portfolioTags|length) %}, {% endif %}
 
-            <!--Portfolio Item-->
-            <div class="item col-lg-4 col-sm-6 design">
-                <a href="/blog-details">
-                    <figure>
-                        <img src="img/realisations/cantaloube.png" alt="">
-                        <figcaption>
-                            <h4>La maison Cantaloube</h4>
-                            <p>Design</p>
-                        </figcaption>
-                    </figure>
-                </a>
-            </div>
+                                {% endfor %}
 
-            <!--Portfolio Item-->
-            <div class="item col-lg-4 col-sm-6 design graphic">
-                <a class="video-link" href="https://www.youtube.com/watch?v=k_okcNVZqqI">
-                    <figure>
-                        <img src="img/portfolio/img-3.jpg" alt="">
-                        <figcaption>
-                            <h4>Creative Cup</h4>
-                            <p>Graphic</p>
+                            
+                            </p>
                         </figcaption>
                     </figure>
                 </a>
             </div>
+            {% endfor %}
 
-            <!--Portfolio Item-->
-            <div class="item col-lg-4 col-sm-6 design">
-                <a class="image-link" href="img/portfolio/img-4.jpg">
-                    <figure>
-                        <img src="img/portfolio/img-4.jpg" alt="">
-                        <figcaption>
-                            <h4>Business Card</h4>
-                            <p>Design</p>
-                        </figcaption>
-                    </figure>
-                </a>
-            </div>
 
-            <!--Portfolio Item-->
-            <div class="item col-lg-4 col-sm-6 Symfony">
-                <a class="ajax-link" href="single-work.html">
-                    <figure>
-                        <img src="img/portfolio/img-5.jpg" alt="">
-                        <figcaption>
-                            <h4>Back Pack</h4>
-                            <p>Symfony</p>
-                        </figcaption>
-                    </figure>
-                </a>
-            </div>
 
-            <!--Portfolio Item-->
-            <div class="item col-lg-4 col-sm-6 design">
-                <a class="ajax-link" href="single-work.html">
-                    <figure>
-                        <img src="img/portfolio/img-6.jpg" alt="">
-                        <figcaption>
-                            <h4>Door Hangar</h4>
-                            <p>Design</p>
-                        </figcaption>
-                    </figure>
-                </a>
-            </div>
-
-            <!--Portfolio Item-->
-            <div class="item col-lg-4 col-sm-6 graphic">
-                <a class="image-link" href="img/portfolio/img-7.jpg">
-                    <figure>
-                        <img src="img/portfolio/img-7.jpg" alt="">
-                        <figcaption>
-                            <h4>Notepad Design</h4>
-                            <p>graphic</p>
-                        </figcaption>
-                    </figure>
-                </a>
-            </div>
-
-            <!--Portfolio Item-->
-            <div class="item col-lg-4 col-sm-6 Symfony">
-                <a class="image-link" href="img/portfolio/img-8.jpg">
-                    <figure>
-                        <img src="img/portfolio/img-8.jpg" alt="">
-                        <figcaption>
-                            <h4>Creative Flyer</h4>
-                            <p>Symfony</p>
-                        </figcaption>
-                    </figure>
-                </a>
-            </div>
-
-            <!--Portfolio Item-->
-            <div class="item col-lg-4 col-sm-6 Symfony">
-                <a class="video-link" href="https://www.youtube.com/watch?v=k_okcNVZqqI">
-                    <figure>
-                        <img src="img/portfolio/img-9.jpg" alt="">
-                        <figcaption>
-                            <h4>Mobile App</h4>
-                            <p>Symfony</p>
-                        </figcaption>
-                    </figure>
-                </a>
-            </div>
-
-            <!--Portfolio Item-->
-            <div class="item col-lg-4 col-sm-6 graphic">
-                <a class="image-link" href="img/portfolio/img-10.jpg">
-                    <figure>
-                        <img src="img/portfolio/img-10.jpg" alt="">
-                        <figcaption>
-                            <h4>Cup Design</h4>
-                            <p>Graphic</p>
-                        </figcaption>
-                    </figure>
-                </a>
-            </div>
-
-            <!--Portfolio Item-->
-            <div class="item col-lg-4 col-sm-6 Symfony graphic">
-                <a class="ajax-link" href="single-work.html">
-                    <figure>
-                        <img src="img/portfolio/img-11.jpg" alt="">
-                        <figcaption>
-                            <h4>Creative Box</h4>
-                            <p>Symfony</p>
-                        </figcaption>
-                    </figure>
-                </a>
-            </div>
+          
 
         </div>
     </div>

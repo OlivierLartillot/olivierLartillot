@@ -1,0 +1,31 @@
+<!--Blog Section Start-->
+<section id="realisations" class="blog-section pt-page">
+    <div class="section-container">
+
+        <!--Page Heading-->
+        <div class="page-heading">
+            <span class="icon"><i class="lnr lnr-book"></i></span>
+            <h2>Mes Réalisations</h2>
+        </div>
+
+        <div class="row blogs-masonry">
+
+            {% for realisation in listeDesRealisations %}
+                    <div class="col-lg-4 col-sm-6 ">
+                        <a href="{{ path('app_realisation_detail',{'id': realisation.id }) }}" class="blog-item rounded shadow">
+                            <div class="blog-image">
+                                <img src="img/realisations/thumbnails/{{ realisation.thumbnail }}" alt="{{ realisation.title }}">
+                            </div>
+                            <div class="blog-content">
+                                <span class="cat">{{ realisation.subTitle }}</span>
+                                <h4 class="blog-title">{{ realisation.title }}</h4>
+                                <div class="blog-date">{{ realisation.date }}</div>
+                            </div>
+                        </a>
+                    </div>
+            {% endfor %}
+
+        </div>
+    </div>
+</section>
+<!--Blog Section End-->

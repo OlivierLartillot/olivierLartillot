@@ -9,7 +9,7 @@
 
             {% include 'pages/accueil.html.twig' %}
             {% include 'pages/services.html.twig' %}
-            {% include 'pages/blog.html.twig' %}
+            {% include 'pages/realisations.html.twig' %}
             {% include 'pages/portfolio.html.twig' %}
             {% include 'pages/about.html.twig' %}
             {% include 'pages/resume.html.twig' %}
@@ -33,11 +33,11 @@
     <!--Ajax Portfolio Container End-->
 
     <!--Jquery JS-->
-    <script src="js/jquery.min.js"></script>
+    <script src="{{asset('js/jquery.min.js')}}"></script>
     <!--Plugins JS-->
-    <script src="js/plugins.min.js"></script>
+    <script src="{{asset('js/plugins.min.js')}}"></script>
     <!--Google Map Api-->
     <script src="https://maps.google.com/maps/api/js?sensor=false"></script>
     <!--Site Main JS-->
-    <script src="js/main.js"></script>
+    <script src="{{asset('js/main.js')}}"></script>
 {% endblock %}

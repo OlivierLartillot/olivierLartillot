@@ -7,33 +7,43 @@
             <h2>A propos de moi</h2>
         </div>
 
+
         <!-- About Info Row Start-->
-        <div class="row about mb-70">
+        <div class="row about mt-30 mb-70">
 
             <div class="col-lg-8">
                 <!--Personal Intro-->
                 <h3 class="mb-20">Création de sites & Applications Web</h3>
-                <p>Dolor reprehenderit aut repudiandae maiores recusandae. Consequatur dolor nisi labore commodi ipsa? Excepturi velit laboriosam at voluptatibus cupiditate est vel. Dolorem praesentium itaque fugiat placeat quas consequatur? Obcaecati natus rerum</p>
-                <p>Consectetur consectetur nesciunt nesciunt blanditiis amet? Quod quis unde aliquid excepturi laudantium? Illo architecto aliquam velit illo magnam neque perferendis sint Incidunt eius ipsa inventore labore eos velit. Minus hic magni reiciendis necessitatibus ex Quidem officia deleniti accusamus obcaecati dolores. Porro culpa quibusdam impedit porro praesentium excepturi. Alias ab consequatur?</p>
+                <p>
+                    Je suis entré dans le monde du web au début des années 2000 et j'ai fais mes premiers pas en tant qu'autodidacte. Afin de passer un cap supplémentaire et d'acquérir des compétences professionnelles, j'ai suivi récemment une <strong>formation de Développeur Web & Web Mobile au sein de l'école O'Clock et obtenu le Titre Professionnel</strong>. 
+                </p>
+                <p>
+                    Les compétences acquises me permettent aujourd'hui de mener à bien des projets "fullstack" en solo ou même de travailler en équipe, notament par l'intermédiaire du gestionnaire de version Git et de la plateforme en ligne Github. 
+                </p>
+                <p>
+                    Depuis la fin de ma formation je n'ai de cesse de me former à de nouveaux langages et frameworks. Je m'exerce en réalisant des projets "personnels" et en tant que "Freelance".
+                </p>
 
                 <!--Signature Image-->
-                <div class="signature mt-20">
+{#                 <div class="signature mt-20">
                     <img src="img/signature-black.png" alt="">
-                </div>
+                </div> #}
             </div>
 
             <!--Personal Info-->
             <div class="col-lg-4">
                 <div class="about-info">
-                    <h3 class="mb-20">Personal Information</h3>
+                    <h3 class="mb-20">Informations Personnelles</h3>
                     <ul>
-                        <li><span class="title">Name</span><span class="value">Olivier Lartillot</span></li>
-                        <li><span class="title">Age</span><span class="value">42 ans</span></li>
-                        <li><span class="title">Residence</span><span class="value">Montpellier, France</span></li>
-                        <li><span class="title">Address</span><span class="value">123 Lorem Ipsum</span></li>
-                        <li><span class="title">Email</span><span class="value">example@example.com</span></li>
-                        <li><span class="title">Phone</span><span class="value">(+1) 123 456 7890</span></li>
-                        <li><span class="title">Freelance</span><span class="value">Libre</span></li>
+                        <li><span class="title">Nom</span><span class="value">Olivier Lartillot</span></li>
+                        <li><span class="title">Résidence</span><span class="value">Montpellier, France</span></li>
+                        <li><span class="title">Email</span><span class="value">
+                        <a href="#contact">oliv<!-- Ceci embete -->ier.lart<!-- les robots -->illot@gm<span class="protectionspam ps-1">on se protége contre le spam</span>ail.com</a>
+                        </span></li>
+                        <li><span class="title">Tel</span><span class="value"><a class="phone" href="tel:+33638327548">0<!-- Ceci embete -->63<span class="protectionspam ps-1">on se protége contre le spam</span>832<!-- Ceci embete -->7548</a> </span></li>
+
+                        <li><span class="title">Emploi</span><span class="value">A l'écoute d'opportunités</span></li>
+                        <li>Actuellement Freelance</li>
                     </ul>
                     <div class="resume-button mt-30">
                         <a class="btn-main" href="#">Télécharger le CV</a>
@@ -43,11 +53,17 @@
         </div>
         <!-- About Info Row End-->
 
+
+       
+            {% include 'composants/skills.html.twig' %}
+       
+
+
         <!--Services Row Start-->
-        <div class="row services mb-30">
+        <div class="row services mt-70 mb-30">
             <div class="col-md-12">
                 <div class="subheading">
-                    <h3>Services</h3>
+                    <h3>Compétences</h3>
                 </div>
             </div>
 
@@ -90,7 +106,7 @@
         <!--Services Row End-->
 
         <!--Clients Row Start-->
-        <div class="row clients mb-70">
+        {#<div class="row clients mb-70">
             <div class="col-md-12">
                 <div class="subheading">
                     <h3>Clients</h3>
@@ -163,11 +179,11 @@
                 </div>
 
             </div>
-        </div>
+        </div> #}
         <!--Clients Row End-->
 
         <!--Testimonials Row Start-->
-        <div class="row testimonials mb-50">
+        {# <div class="row testimonials mb-50">
             <div class="col-md-12">
                 <div class="subheading">
                     <h3>Testimonials</h3>
@@ -220,7 +236,11 @@
             </div>
             <!--Testimonials Row End-->
 
-        </div>
+        </div> #}
+
+
+
+
     </div>
 </section>
 <!--About Section End-->
