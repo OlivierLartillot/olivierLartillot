@@ -23,6 +23,30 @@
         <!--Portfolio Items-->
         <div class="row portfolio-items mb-50">
 
+            {% for portfolio in portfolios %}
+            <div class="item col-lg-4 col-sm-6 Symfony graphic">
+                <a class="{{ portfolio.portfolioClass }}" href="img/portfolio/{{ portfolio.image }}">
+                    <figure>
+                        <img src="img/portfolio/{{ portfolio.image }}" alt="{{ portfolio.title }}">
+                        <figcaption>
+                            <h4>{{ portfolio.title }}</h4>
+                            <p>
+                                {% for key,tag in portfolio.portfolioTags %}
+                                    {{ tag }}
+                                    {% if (key + 1) < (portfolio.portfolioTags|length) %}, {% endif %}
+
+                                {% endfor %}
+
+                            
+                            </p>
+                        </figcaption>
+                    </figure>
+                </a>
+            </div>
+            {% endfor %}
+
+
+
             <!--Portfolio Item-->
             <div class="item col-lg-4 col-sm-6 Symfony graphic">
                 <a class="image-link" href="img/realisations/thumbnails/cantaloube.png">
@@ -37,13 +61,13 @@
             </div>
 
             <!--Portfolio Item-->
-            <div class="item col-lg-4 col-sm-6 design">
-                <a href="/blog-details">
+            <div class="item col-lg-4 col-sm-6 Symfony graphic">
+                <a class="image-link" href="img/portfolio/cantaloube_volailles.png">
                     <figure>
-                        <img src="img/realisations/cantaloube.png" alt="">
+                        <img src="img/portfolio/cantaloube_volailles.png" alt="">
                         <figcaption>
-                            <h4>La maison Cantaloube</h4>
-                            <p>Design</p>
+                            <h4>Book Design</h4>
+                            <p>Symfony, Graphic</p>
                         </figcaption>
                     </figure>
                 </a>

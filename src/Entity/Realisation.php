@@ -49,6 +49,9 @@ class Realisation
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $siteLink = null;
 
+    #[ORM\Column(type: Types::TEXT, nullable: true)]
+    private ?string $technicalContent = null;
+
     public function __construct()
     {
         $this->stack = new ArrayCollection();
@@ -199,6 +202,18 @@ class Realisation
     public function setSiteLink(?string $siteLink): self
     {
         $this->siteLink = $siteLink;
+
+        return $this;
+    }
+
+    public function getTechnicalContent(): ?string
+    {
+        return $this->technicalContent;
+    }
+
+    public function setTechnicalContent(?string $technicalContent): self
+    {
+        $this->technicalContent = $technicalContent;
 
         return $this;
     }

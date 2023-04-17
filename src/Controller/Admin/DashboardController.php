@@ -2,6 +2,9 @@
 
 namespace App\Controller\Admin;
 
+use App\Entity\Portfolio;
+use App\Entity\PortfolioClass;
+use App\Entity\PortfolioTag;
 use App\Entity\Realisation;
 use App\Entity\TechnicalStack;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
@@ -45,5 +48,11 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');
         yield MenuItem::linkToCrud('Réalisations', 'fas fa-list', Realisation::class);
         yield MenuItem::linkToCrud('Stack', 'fas fa-list', TechnicalStack::class);
+
+
+        yield MenuItem::linkToCrud('Portfolio', 'fas fa-list', Portfolio::class);
+        yield MenuItem::linkToCrud('class', 'fas fa-list', PortfolioClass::class);
+        yield MenuItem::linkToCrud('tag', 'fas fa-list', PortfolioTag::class);
+        
     }
 }
