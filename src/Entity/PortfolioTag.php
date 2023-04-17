@@ -21,6 +21,9 @@ class PortfolioTag
     #[ORM\ManyToMany(targetEntity: Portfolio::class, mappedBy: 'portfolioTags')]
     private Collection $portfolios;
 
+    #[ORM\Column(length: 255)]
+    private ?string $slug = null;
+
     public function __construct()
     {
         $this->portfolios = new ArrayCollection();
@@ -74,6 +77,18 @@ class PortfolioTag
     public function __toString()
     {
         return $this->name;
+    }
+
+    public function getSlug(): ?string
+    {
+        return $this->slug;
+    }
+
+    public function setSlug(string $slug): self
+    {
+        $this->slug = $slug;
+
+        return $this;
     }
 
  

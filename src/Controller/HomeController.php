@@ -2,9 +2,10 @@
 
 namespace App\Controller;
 
-
+use App\Entity\PortfolioTag;
 use App\Entity\Realisation;
 use App\Repository\PortfolioRepository;
+use App\Repository\PortfolioTagRepository;
 use App\Repository\RealisationRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -13,17 +14,18 @@ use Symfony\Component\Routing\Annotation\Route;
 class HomeController extends AbstractController
 {
     #[Route('/', name: 'app_home')]
-    public function index(RealisationRepository $realisationRepository, PortfolioRepository $portfolioRepository): Response
+    public function index(RealisationRepository $realisationRepository, PortfolioRepository $portfolioRepository, PortfolioTagRepository $portfolioTagRepository): Response
     {
 
         $listeDesRealisations = $realisationRepository->findAll(); 
         $portfolios= $portfolioRepository->findAll();
-
+        $tags = $portfolioTagRepository->findAll();
 
 
         return $this->render('home/index.html.twig', [
             'listeDesRealisations' => $listeDesRealisations,
             'portfolios' => $portfolios,
+            'tags' => $tags,
             'controller_name' => 'HomeController',
         ]);
     }
