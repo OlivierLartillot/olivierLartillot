@@ -15,12 +15,12 @@
         
         {% block stylesheets %}
             {{ encore_entry_link_tags('app') }}
-        <!--Plugins Css-->
-        <link rel="stylesheet" href="{{asset('css/plugins.css')}}">
-        <!--Main Styles Css-->
-        <link rel="stylesheet" href="{{asset('css/style-light.css')}}">
-        <!--Color Css-->
-        <link rel="stylesheet" href="{{asset('css/blue-color.css')}}">
+            <!--Plugins Css-->
+            <link rel="stylesheet" href="{{asset('css/plugins.css')}}">
+            <!--Main Styles Css-->
+            <link rel="stylesheet" href="{{asset('css/style-light.css')}}">
+            <!--Color Css-->
+            <link rel="stylesheet" href="{{asset('css/blue-color.css')}}">
         {% endblock %}
 
         {% block javascripts %}
@@ -93,9 +93,11 @@
                         <div class="nav-footer">
                             <!--Social Links-->
                             <ul class="social">
-                                {% for reseau in reseaux %}
-                                    <li><a href="{{ reseau.url }}" target="blank"><i class="{{ reseau.iconClass}}"></i></a></li>
-                                {% endfor %}
+                                {% if reseaux is defined %}
+                                    {% for reseau in reseaux %}
+                                        <li><a href="{{ reseau.url }}" target="blank"><i class="{{ reseau.iconClass}}"></i></a></li>
+                                    {% endfor %}
+                                {% endif %}
 
 
 
