@@ -9,7 +9,6 @@ use App\Repository\PortfolioRepository;
 use App\Repository\PortfolioTagRepository;
 use App\Repository\RealisationRepository;
 use App\Repository\ReseauRepository;
-use App\Service\MailerService;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
