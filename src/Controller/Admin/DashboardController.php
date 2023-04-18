@@ -6,6 +6,7 @@ use App\Entity\Portfolio;
 use App\Entity\PortfolioClass;
 use App\Entity\PortfolioTag;
 use App\Entity\Realisation;
+use App\Entity\Reseau;
 use App\Entity\TechnicalStack;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
@@ -55,5 +56,7 @@ class DashboardController extends AbstractDashboardController
                 MenuItem::linkToCrud('class', 'fas fa-file', PortfolioClass::class),
                 MenuItem::linkToCrud('tag', 'fas fa-tags', PortfolioTag::class),
             ]);
+        yield MenuItem::linkToCrud('Réseaux Sociaux', 'fas fa-thumbs-up', Reseau::class);
+        
     }
 }
