@@ -80,10 +80,10 @@
                         <nav class="nav-menu">
                             <ul>
                                 <li><a href="{{urlBase}}#home" class="pt-link active"><span class="nav-menu-icon"><i class="lnr lnr-home"></i></span>Accueil </a> </li>
+                                <li><a href="{{urlBase}}#about" class="pt-link"><span class="nav-menu-icon"><i class="lnr lnr-user"></i></span>A propos</a></li>
                                  {#<li><a href="{{urlBase}}#services" class="pt-link"><span class="nav-menu-icon"><i class="lnr lnr-magic-wand"></i></span>Services </a> </li> #} 
                                 <li><a href="{{urlBase}}#realisations" class="pt-link"><span class="nav-menu-icon"><i class="lnr lnr-book"></i></span>Réalisations</a></li>
                                 <li><a href="{{urlBase}}#portfolio" class="pt-link"><span class="nav-menu-icon"><i class="lnr lnr-briefcase"></i></span>Portfolio</a></li>
-                                <li><a href="{{urlBase}}#about" class="pt-link"><span class="nav-menu-icon"><i class="lnr lnr-user"></i></span>A propos</a></li>
                                 <li><a href="{{urlBase}}#resume" class="pt-link"><span class="nav-menu-icon"><i class="lnr lnr-license"></i></span>CV Online</a></li>
                                 <li><a href="{{urlBase}}#contact" class="pt-link"><span class="nav-menu-icon"><i class="lnr lnr-envelope"></i></span>Contact</a></li>
                             </ul>
@@ -93,15 +93,22 @@
                         <div class="nav-footer">
                             <!--Social Links-->
                             <ul class="social">
-                                <li><a href="#"><i class="fab fa-facebook-square"></i></a></li>
+                                {% for reseau in reseaux %}
+                                    <li><a href="{{ reseau.url }}" target="blank"><i class="{{ reseau.iconClass}}"></i></a></li>
+                                {% endfor %}
+
+
+
+{#                                 <li><a href="#"><i class="fab fa-facebook-square"></i></a></li>
+                                <li><a href="#"><i class="fab fa-brands fa-linkedin"></i></a></li>
                                 <li><a href="#"><i class="fab fa-twitter-square"></i></a></li>
                                 <li><a href="#"><i class="fab fa-youtube-square"></i></a></li>
                                 <li><a href="#"><i class="fab fa-dribbble-square"></i></a></li>
-                                <li><a href="#"><i class="fab fa-behance-square"></i></a></li>
+                                <li><a href="#"><i class="fab fa-behance-square"></i></a></li> #}
                             </ul>
                             <!--Copyright Text-->
                             <div class="copy">
-                                <p>2021 &copy; Cosmos-Themes.<br>All Right Reserved.</p>
+                                <p>2023 &copy; Olivier L.<br>All Right Reserved.</p>
                             </div>
                         </div>
 
@@ -113,8 +120,6 @@
         {% block body %}
         
         {% endblock %}
-
-
     </body>
 </html>
 

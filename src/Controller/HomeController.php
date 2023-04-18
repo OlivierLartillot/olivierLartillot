@@ -8,6 +8,7 @@ use App\Form\ContactType;
 use App\Repository\PortfolioRepository;
 use App\Repository\PortfolioTagRepository;
 use App\Repository\RealisationRepository;
+use App\Repository\ReseauRepository;
 use App\Service\MailerService;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
@@ -21,12 +22,19 @@ use Symfony\Component\Routing\Annotation\Route;
 class HomeController extends AbstractController
 {
     #[Route('/', name: 'app_home', methods:['GET', 'POST'])]
-    public function index(Request $request, EntityManagerInterface $manager, MailerInterface $mailer, RealisationRepository $realisationRepository, PortfolioRepository $portfolioRepository, PortfolioTagRepository $portfolioTagRepository): Response
+    public function index(Request $request, EntityManagerInterface $manager, 
+                                            MailerInterface $mailer, 
+                                            RealisationRepository $realisationRepository, 
+                                            PortfolioRepository $portfolioRepository, 
+                                            PortfolioTagRepository $portfolioTagRepository,
+                                            ReseauRepository $reseauRepository
+    ): Response
     {
 
         $listeDesRealisations = $realisationRepository->findAll(); 
         $portfolios= $portfolioRepository->findAll();
         $tags = $portfolioTagRepository->findAll();
+        $reseaux = $reseauRepository->findBy(['published' => true]); 
 
 
         // formulaire de contact
@@ -82,6 +90,7 @@ class HomeController extends AbstractController
             'tags' => $tags,
             'form' => $form,
             'controller_name' => 'HomeController',
+            'reseaux' => $reseaux
         ]);
     }
 
