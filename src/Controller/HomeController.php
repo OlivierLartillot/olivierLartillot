@@ -131,14 +131,4 @@ class HomeController extends AbstractController
         ]);
     }
 
-
-    #[Route('/mail', name: 'app_envoi_email')]
-    public function sendMail(MailerService $mailerService, Request $request)
-    {
-
-        dd($request->get('Name'));
-            
-
-           return '';
-    }
 }
