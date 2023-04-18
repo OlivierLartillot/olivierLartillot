@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <h1>Demande de {{contact.firstName}} {{contact.lastName}}</h1>
+
+        {%if contact.company %}
+            <p><u><b>Société:</b></u> {{contact.company}}</p>
+        {%endif%}
+
+        <p><u><b>Téléphone:</b></u> {{ contact.phoneNumber ? contact.phoneNumber : 'non renseigné' }}</p>
+        <p><u><b>Email:</b></u> {{ contact.email ? contact.email : 'non renseigné' }}</p>
+        <p><u><b>Sujet:</b></u> {{ contact.subject }} </p>
+        <p><u><b>Message:</b></u></p>
+        <div>{{ contact.content }}</div>
+
+    </body>
+</html>

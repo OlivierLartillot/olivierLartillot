@@ -119,6 +119,17 @@ blockquote {
     color: #00A3E1;
 }
 
+
+/************************ CUSTOM OLIV CSS ****************************************/
 span.protectionspam{
     display: none;
   }
+
+label.required:after {
+    content: " *";
+    color: crimson;
+}
+.form-error {
+    color: crimson;
+    font-style: italic;
+}

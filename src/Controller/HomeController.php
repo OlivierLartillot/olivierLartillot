@@ -2,19 +2,26 @@
 
 namespace App\Controller;
 
-use App\Entity\PortfolioTag;
+use App\Entity\Contact;
 use App\Entity\Realisation;
+use App\Form\ContactType;
 use App\Repository\PortfolioRepository;
 use App\Repository\PortfolioTagRepository;
 use App\Repository\RealisationRepository;
+use App\Service\MailerService;
+use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Mailer\MailerInterface;
+use Symfony\Component\Mime\Email;
 use Symfony\Component\Routing\Annotation\Route;
 
 class HomeController extends AbstractController
 {
-    #[Route('/', name: 'app_home')]
-    public function index(RealisationRepository $realisationRepository, PortfolioRepository $portfolioRepository, PortfolioTagRepository $portfolioTagRepository): Response
+    #[Route('/', name: 'app_home', methods:['GET', 'POST'])]
+    public function index(Request $request, EntityManagerInterface $manager, MailerInterface $mailer, RealisationRepository $realisationRepository, PortfolioRepository $portfolioRepository, PortfolioTagRepository $portfolioTagRepository): Response
     {
 
         $listeDesRealisations = $realisationRepository->findAll(); 
@@ -22,10 +29,58 @@ class HomeController extends AbstractController
         $tags = $portfolioTagRepository->findAll();
 
 
+        // formulaire de contact
+            $contact = new Contact();
+            $form = $this->createForm(ContactType::class, $contact);
+
+            $form->handleRequest($request);
+
+            if($form->isSubmitted() && !$form->isValid()){ 
+
+                $this->addFlash(
+                    'error',
+                    'Le message n\'a pas été envoyé car le formulaire contient des erreurs. Veuillez vérifier avant de le soumettre  à nouveau.'
+                );
+                
+            }
+
+            if($form->isSubmitted() && $form->isValid()){
+                
+                $contact = $form->getData();
+                //$score = $recaptcha3Validator->getLastResponse()->getScore();
+                $manager->persist($contact);
+                $manager->flush();
+    
+                //Email
+                $email = (new TemplatedEmail())
+                ->from('contact@olivier.com')
+                ->to('olivier.lartillot@gmail.com')
+                ->subject($contact->getSubject())
+                // path of the Twig template to render
+                ->htmlTemplate('emails/contact.html.twig') 
+                // pass variables (name => value) to the template
+                ->context([
+                    'contact' => $contact, 
+                ]
+            );
+    
+                $mailer->send($email);
+
+                $this->addFlash(
+                    'success',
+                    'Votre demande a été envoyée avec succés !'
+                );
+                return $this->redirectToRoute('app_home');
+    
+            }
+
+
+
         return $this->render('home/index.html.twig', [
             'listeDesRealisations' => $listeDesRealisations,
             'portfolios' => $portfolios,
             'tags' => $tags,
+            'form' => $form,
             'controller_name' => 'HomeController',
         ]);
     }
@@ -74,5 +129,16 @@ class HomeController extends AbstractController
             'suivant' => $suivant,
             'controller_name' => 'HomeController',
         ]);
+    }
+
+
+    #[Route('/mail', name: 'app_envoi_email')]
+    public function sendMail(MailerService $mailerService, Request $request)
+    {
+
+        dd($request->get('Name'));
+            
+
+           return '';
     }
 }
