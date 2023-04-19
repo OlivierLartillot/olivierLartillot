@@ -1,20 +1,10 @@
-{# {% extends 'base.html.twig' %} #}
+{% extends 'baseExceptions.html.twig' %}
 
-
-    
-    <main class="my-5 text-center">
-
-            <h1 class="mb-3 ">Page non trouvée</h1>
-                    
+    {% block body %}
+        <div>
+            <h1 class="mb-3 ">Page non trouvée - erreur 404</h1>  
             <p class="lead my-5">
                 La page à laquelle vous essayez d'accéder n'existe pas ou a été déplacée. N'hésitez pas à nous contacter pour que nous puissions réparer ce lien.
             </p>
-            <p class="">
-                <span class="fs-1">code: 404 </span>
-                <br/>
-                <img src="{{ asset('assets/images/errors_pages/faviconCochonRose.png') }}">
-            </p>
-            <p class="mt-5">   
-                <a href="{{ path('app_home') }}" class="custom-button rounded">Retour à la page d'accueil</a>
-            </p>
-    </main>
+        </div>
+    {% endblock %}

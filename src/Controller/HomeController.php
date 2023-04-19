@@ -15,7 +15,6 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Mailer\MailerInterface;
-use Symfony\Component\Mime\Email;
 use Symfony\Component\Routing\Annotation\Route;
 
 class HomeController extends AbstractController
@@ -26,10 +25,10 @@ class HomeController extends AbstractController
                                             RealisationRepository $realisationRepository, 
                                             PortfolioRepository $portfolioRepository, 
                                             PortfolioTagRepository $portfolioTagRepository,
-                                            ReseauRepository $reseauRepository
+                                            ReseauRepository $reseauRepository,
+                                          
     ): Response
     {
-
         $listeDesRealisations = $realisationRepository->findAll(); 
         $portfolios= $portfolioRepository->findAll();
         $tags = $portfolioTagRepository->findAll();
@@ -88,7 +87,7 @@ class HomeController extends AbstractController
             'portfolios' => $portfolios,
             'tags' => $tags,
             'form' => $form,
-            'controller_name' => 'HomeController',
+            'controller_name' => 'Olivier Lartillot',
             'reseaux' => $reseaux
         ]);
     }

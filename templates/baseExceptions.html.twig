@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="fr" data-random-animation="false" data-animation="19">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="keywords" content="404,500" />
+        <meta name="description" content="Pages d'erreurs de l'applcation de présentation du développeur" />
+        <meta name="author" content="cosmos-themes" />
+        <title>{% block title %}Bienvenu sur la page d'erreur{% endblock %}</title>
+        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+        {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
+        <!--Favicons-->
+        <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+        
+        {% block stylesheets %}
+            {{ encore_entry_link_tags('app') }}
+            <!--Plugins Css-->
+            <link rel="stylesheet" href="{{asset('css/plugins.css')}}">
+            <!--Main Styles Css-->
+            <link rel="stylesheet" href="{{asset('css/style-light.css')}}">
+            <!--Color Css-->
+            <link rel="stylesheet" href="{{asset('css/blue-color.css')}}">
+        {% endblock %}
+
+        {% block javascripts %}
+            {{ encore_entry_script_tags('app') }}
+                    <!--Modernizr Js-->
+        <script src="{{asset('js/modernizr.js')}}"></script>
+        
+        {% endblock %}
+    </head>
+    <body class="mt-50 text-center bg-light">
+
+        
+        <!--Banner Text-->
+        <h1 class="mb-20">Olivier <span>Lartillot</span></h1>
+        
+        <hr>
+
+        {% block body %}
+        
+        {% endblock %}
+
+
+        <div class="col-md-12 text-center">
+            <a href="{{ path('app_home') }}" class="btn-main">Retour à la page d'accueil</a>
+        </div>
+    </body>
+</html>
+
