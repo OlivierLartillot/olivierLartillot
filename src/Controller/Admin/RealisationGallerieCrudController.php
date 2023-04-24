@@ -8,6 +8,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use Symfony\Component\Asset\Package;
 use Symfony\Component\Asset\VersionStrategy\EmptyVersionStrategy;
 
@@ -37,6 +38,7 @@ class RealisationGallerieCrudController extends AbstractCrudController
 
         return [
             IdField::new('id')->hideOnForm(),
+            TextField::new('name'),
             ImageField::new('image')->setUploadDir($uploadPath)->setBasePath($path),
             TextEditorField::new('description'),
             AssociationField::new('realisation')

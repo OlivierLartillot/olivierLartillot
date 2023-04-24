@@ -226,6 +226,13 @@ img {
 
 
 <div class="container">
+
+    <h1>test</h1
+    {% for image in realisation.imagesGallerie %}
+        {{ dump(image.image)}}
+    {% endfor %}
+
+
     <div class="mySlides">
         <div class="numbertext">1 / 6</div>
         <img src="{{ asset('img/realisations/thumbnails/cantaloube.png') }}">

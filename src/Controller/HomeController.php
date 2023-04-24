@@ -96,37 +96,39 @@ class HomeController extends AbstractController
     public function blogDetails(Realisation $realisation, RealisationRepository $realisationRepository ): Response
     {
 
-        // récupère les ids dans un tableau pour pagination
-        $listeDesRealisations = $realisationRepository->findAll();
-        $listId = [];
-        $precedent = null;
-        $suivant= null;
+        /************ PAGINATION *********/
+            // récupère les ids dans un tableau pour pagination
+            $listeDesRealisations = $realisationRepository->findAll();
+            $listId = [];
+            $precedent = null;
+            $suivant= null;
 
-        foreach ($listeDesRealisations as $key => $realisationCourante) {
-            $listId[] = $realisationCourante->getId();
-            // récupérer la clé correspondante a l'id courant
-            if ($realisationCourante->getId() == $realisation->getId())
-                $currentKey = $key;
-            }
+            foreach ($listeDesRealisations as $key => $realisationCourante) {
+                $listId[] = $realisationCourante->getId();
+                // récupérer la clé correspondante a l'id courant
+                if ($realisationCourante->getId() == $realisation->getId())
+                    $currentKey = $key;
+                }
 
-            $number = count($listId);
-        
-            // si la clé est la première alors tu affiche la dernière sur précédent
-            if ($currentKey == 0) {
-                $precedent = $number-1;
-                $suivant= $currentKey+1;
+                $number = count($listId);
+            
+                // si la clé est la première alors tu affiche la dernière sur précédent
+                if ($currentKey == 0) {
+                    $precedent = $number-1;
+                    $suivant= $currentKey+1;
 
 
-            }
-            // si la clé est la derniere, tu adffiches la premiere sur suivant
-            else if ($currentKey == $number-1) {
-                $precedent = $currentKey-1;
-                $suivant= 0;
-            }
-            else {
-                $precedent = $currentKey-1;
-                $suivant=  $currentKey+1;
-            }
+                }
+                // si la clé est la derniere, tu adffiches la premiere sur suivant
+                else if ($currentKey == $number-1) {
+                    $precedent = $currentKey-1;
+                    $suivant= 0;
+                }
+                else {
+                    $precedent = $currentKey-1;
+                    $suivant=  $currentKey+1;
+                }
+            /**********  FIN PAGINATION ************/
 
 
         return $this->render('pages/realisation-detail.html.twig', [
