@@ -52,9 +52,13 @@ class Realisation
     #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $technicalContent = null;
 
+    #[ORM\OneToMany(mappedBy: 'realisation', targetEntity: RealisationGallerie::class)]
+    private Collection $imagesGallerie;
+
     public function __construct()
     {
         $this->stack = new ArrayCollection();
+        $this->imagesGallerie = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -216,5 +220,40 @@ class Realisation
         $this->technicalContent = $technicalContent;
 
         return $this;
+    }
+
+    /**
+     * @return Collection<int, RealisationGallerie>
+     */
+    public function getImagesGallerie(): Collection
+    {
+        return $this->imagesGallerie;
+    }
+
+    public function addImagesGallerie(RealisationGallerie $imagesGallerie): self
+    {
+        if (!$this->imagesGallerie->contains($imagesGallerie)) {
+            $this->imagesGallerie->add($imagesGallerie);
+            $imagesGallerie->setRealisation($this);
+        }
+
+        return $this;
+    }
+
+    public function removeImagesGallerie(RealisationGallerie $imagesGallerie): self
+    {
+        if ($this->imagesGallerie->removeElement($imagesGallerie)) {
+            // set the owning side to null (unless already changed)
+            if ($imagesGallerie->getRealisation() === $this) {
+                $imagesGallerie->setRealisation(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function __toString()
+    {
+        return $this->title;
     }
 }

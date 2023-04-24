@@ -58,6 +58,7 @@ class RealisationCrudController extends AbstractCrudController
             TextField::new('typeOfWork'),
             TextField::new('Country'),
             AssociationField::new('stack'),
+            AssociationField::new('imagesGallerie')
 
         ];
     }
