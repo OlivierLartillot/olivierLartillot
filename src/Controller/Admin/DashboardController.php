@@ -2,6 +2,7 @@
 
 namespace App\Controller\Admin;
 
+use App\Entity\ImageRealisation;
 use App\Entity\Portfolio;
 use App\Entity\PortfolioClass;
 use App\Entity\PortfolioTag;
@@ -47,8 +48,18 @@ class DashboardController extends AbstractDashboardController
     public function configureMenuItems(): iterable
     {
         yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');
-        yield MenuItem::linkToCrud('Réalisations', 'fas fa-pencil', Realisation::class);
-        yield MenuItem::linkToCrud('Stack', 'fas fa-rocket', TechnicalStack::class);
+
+        yield MenuItem::subMenu('Gestion Portfolio', 'fa-solid fa-image') 
+            ->setSubItems([
+                MenuItem::linkToCrud('Réalisations', 'fas fa-pencil', Realisation::class),
+                MenuItem::linkToCrud('images Slider', 'fas fa-pencil', ImageRealisation::class),
+
+                MenuItem::linkToCrud('Stack', 'fas fa-rocket', TechnicalStack::class),
+
+        ]);
+
+
+
 
         yield MenuItem::subMenu('Gestion Portfolio', 'fa-solid fa-image') 
             ->setSubItems([
