@@ -9,9 +9,30 @@
 
                 <div class="blog-page">
                     <div class="blog-image">
+                        <div id="carouselExampleRide" class="carousel slide" data-bs-ride="true">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img src="{{asset('img/realisations/full/'~realisation.fullImage)}}" class="d-block w-100" alt="{{realisation.title}}">
+                                </div>
+                                {% for realisation in realisation.imagesSlider %}
+                                    <div class="carousel-item">
+                                        <img src="{{asset('img/realisations/full/'~realisation.image)}}" class="d-block w-100" alt="{{realisation.title}}">
+                                    </div>
+                                {% endfor %}
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleRide" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleRide" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
+
                         {# <img src="{{asset('img/blog/blog-page-img.jpg')}}" alt=""> #}
                         {# 1920 x 700 #}
-                        <img src="{{asset('img/realisations/full/'~realisation.fullImage)}}" alt="{{ realisation.title }}">
+                        {# <img src="{{asset('img/realisations/full/'~realisation.fullImage)}}" alt="{{ realisation.title }}"> #}
                     </div>
                     <div class="blog-container">
                         <div class="row">
