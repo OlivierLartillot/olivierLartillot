@@ -30,9 +30,13 @@ class Portfolio
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $url = null;
 
+    #[ORM\OneToMany(mappedBy: 'portfolio', targetEntity: PortfolioGallerie::class)]
+    private Collection $galleries;
+
     public function __construct()
     {
         $this->portfolioTags = new ArrayCollection();
+        $this->galleries = new ArrayCollection();
     }
 
 
@@ -109,6 +113,36 @@ class Portfolio
     public function setUrl(?string $url): self
     {
         $this->url = $url;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, PortfolioGallerie>
+     */
+    public function getGalleries(): Collection
+    {
+        return $this->galleries;
+    }
+
+    public function addGallery(PortfolioGallerie $gallery): self
+    {
+        if (!$this->galleries->contains($gallery)) {
+            $this->galleries->add($gallery);
+            $gallery->setPortfolio($this);
+        }
+
+        return $this;
+    }
+
+    public function removeGallery(PortfolioGallerie $gallery): self
+    {
+        if ($this->galleries->removeElement($gallery)) {
+            // set the owning side to null (unless already changed)
+            if ($gallery->getPortfolio() === $this) {
+                $gallery->setPortfolio(null);
+            }
+        }
 
         return $this;
     }
