@@ -54,10 +54,10 @@ class PortfolioCrudController extends AbstractCrudController
             yield ImageField::new('image')->setUploadDir($uploadPath)->setBasePath($path)
                                           ->setRequired($pageName !== Crud::PAGE_EDIT) 
                                           ->setFormTypeOptions($pageName == Crud::PAGE_EDIT ? ['allow_delete' => false] : []), 
-            yield AssociationField::new('portfolioClass', 'class'),
-            yield ImageField::new('url', 'Vidéo')->setUploadDir($uploadVideosPath)->setBasePath($videoPath),
+            yield AssociationField::new('portfolioClass', 'class')->setHelp('Affiche l\'image de photo ou vidéo'),
+            yield ImageField::new('url', 'Vidéo')->setUploadDir($uploadVideosPath)->setBasePath($videoPath)->setHelp('A laisser null si c\'est une photo'),
                                           
-            yield AssociationField::new('portfolioTags', 'class'),
+            yield AssociationField::new('portfolioTags', 'Tags')->setHelp('Les tags de filtre à ajouter à l\'image'),
         ];
     }
    
