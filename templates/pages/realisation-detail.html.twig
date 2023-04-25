@@ -13,6 +13,7 @@
                         {# 1920 x 700 #}
                         <img src="{{asset('img/realisations/full/'~realisation.fullImage)}}" alt="{{ realisation.title }}">
                     </div>
+
                     <div class="blog-container">
                         <div class="row">
 
@@ -35,91 +36,7 @@
                                 </div>
                                 {% endif %}
 
-                                
-
-
-
-
-
-                                <section class="row mt-30 py-5 px-3 justify-content-center bg-white  border rounded shadow">
-                                    <article class="col-lg-12">
-                                        {{ realisation.content|raw}}
-                                    </article>
-                                    <div class="col-12">
-                                        <hr>
-                                    </div>
-                                    <div class="mt-40 mb-30 text-center">
-                                        <h2>Coté Technique</h2>
-                                        
-                                    </div>
-                                    
-                                    <div class="table-responsive">
-                                        <table  class="table">
-                                            <thead class="table-dark">
-                                                <tr>
-                                                    <th scope="col">Type</th>
-                                                    <th scope="col">Pays</th>
-                                                    <th scope="col">Stack</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td>{{ realisation.typeOfWork }}</td>
-                                                    <td>{{ realisation.country }}</td>
-                                                    <td>
-                                                        {% for key, stack in realisation.stack %}
-                                                            {{ stack }} 
-                                                        {% if (key + 1) < (realisation.stack|length) %}, {% endif %}
-                                                    {% endfor %}
-                                                    
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-
-
-                                    
-                                        <article class="col-lg-12">
-                                            <div class="card p-3 text-lg-center">
-                                                {{ realisation.technicalContent|raw }}
-                                            </div>
-                                        </article>
-
-
-
-
-                                    <div class="mt-40 text-center"> 
-                                        <a class="btn bg-secondary text-white shadow mx-2" href="{{ path('app_realisation_detail', {'id': listId[precedent]})}}">
-                                        <i class="lnr lnr-arrow-left"></i> Précédent
-                                        </a> 
-                                        <a class="btn bg-secondary text-white shadow mx-2" href="{{ path('app_realisation_detail', {'id': listId[suivant]})}}">
-                                        Suivant <i class="lnr lnr-arrow-right"></i>
-                                        </a> 
-                                    </div>
-
-                                
-                                </section>
-                            </div>
-                            <!--Blog Content End-->
-                                    
-
-                            
-
-                        </div>
-                    </div>
-                
-
-
-
-
-
-
-
-
-
-
-<style>
+                                <style>
 body {
   font-family: Arial;
   margin: 0;
@@ -189,6 +106,7 @@ img {
   padding: 8px 12px;
   position: absolute;
   top: 0;
+  background: black;
 }
 
 /* Container for image text */
@@ -225,44 +143,21 @@ img {
 
 
 
-<div class="container">
+<div class="container pt-50">
 
-    <h1>test</h1
+
+    {% set lenght = realisation.imagesGallerie|length %}
+    {% set i = 1 %}
+
     {% for image in realisation.imagesGallerie %}
-        {{ dump(image.image)}}
+        
+        <div class="mySlides">
+            <div class="numbertext">{{ i }} / {{ lenght }}</div>
+            <img src="{{ asset('img/realisations/gallerie/' ~ image.image) }}">
+        </div>
+         {% set i = i+1 %}
     {% endfor %}
 
-
-    <div class="mySlides">
-        <div class="numbertext">1 / 6</div>
-        <img src="{{ asset('img/realisations/thumbnails/cantaloube.png') }}">
-    </div>
-
-    <div class="mySlides">
-        <div class="numbertext">2 / 6</div>
-        <img src="{{ asset('img/realisations/thumbnails/est.png') }}">
-    </div>
-        <div class="mySlides">
-        <div class="numbertext">3 / 6</div>
-        <img src="{{ asset('img/realisations/thumbnails/cantaloube.png') }}">
-    </div>
-
-    <div class="mySlides">
-        <div class="numbertext">4 / 6</div>
-        <img src="{{ asset('img/realisations/thumbnails/est.png') }}">
-    </div>
-
-            <div class="mySlides">
-        <div class="numbertext">3 / 6</div>
-        <img src="{{ asset('img/realisations/thumbnails/cantaloube.png') }}">
-    </div>
-
-    <div class="mySlides">
-        <div class="numbertext">4 / 6</div>
-        <img src="{{ asset('img/realisations/thumbnails/est.png') }}">
-    </div>
-
-    
     <a class="prev" onclick="plusSlides(-1)">❮</a>
     <a class="next" onclick="plusSlides(1)">❯</a>
 
@@ -270,32 +165,105 @@ img {
         <p id="caption"></p>
     </div>
 
-  
-        <div class="column">
-        <img class="demo cursor" src="{{ asset('img/realisations/thumbnails/cantaloube.png') }}" onclick="currentSlide(1)" alt="The Woods">
-        </div>
-        <div class="column">
-        <img class="demo cursor" src="{{ asset('img/realisations/thumbnails/est.png') }}"  onclick="currentSlide(2)" alt="Cinque Terre">
-        </div>        
-        <div class="column">
-        <img class="demo cursor" src="{{ asset('img/realisations/thumbnails/cantaloube.png') }}" style="width:100%" onclick="currentSlide(3)" alt="The Woods">
-        </div>
-        <div class="column">
-        <img class="demo cursor" src="{{ asset('img/realisations/thumbnails/est.png') }}" style="width:100%" onclick="currentSlide(4)" alt="Cinque Terre">
-        </div>
-        <div class="column">
-        <img class="demo cursor" src="{{ asset('img/realisations/thumbnails/cantaloube.png') }}" style="width:100%" onclick="currentSlide(5)" alt="The Woods">
-        </div>
-        <div class="column">
-        <img class="demo cursor" src="{{ asset('img/realisations/thumbnails/est.png') }}" style="width:100%" onclick="currentSlide(6)" alt="Cinque Terre">
-        </div>
-
- 
+    {% set lenght = realisation.imagesGallerie|length %}
+    {% set i = 0 %}
+    <div class="row px-3">
+        {% for image in realisation.imagesGallerie %}
+            <div class="column">
+                <img class="demo cursor" src="{{ asset('img/realisations/gallerie/' ~ image.image) }}" onclick="currentSlide({{ i+1 }})" alt="The Woods">
+            </div>
+            {% set i = i+1 %}
+        {% endfor %} 
+    </div>
 </div>
 
 
 
 
+                                <section class="row mt-30 py-5 px-3 justify-content-center bg-white  border rounded shadow">
+                                    <article class="col-lg-12">
+                                        {{ realisation.content|raw}}
+                                    </article>
+                                    <div class="col-12">
+                                        <hr>
+                                    </div>
+                                    <div class="mt-40 mb-30 text-center">
+                                        <h2>Coté Technique</h2>
+                                        
+                                    </div>
+                                    
+                                    <div class="table-responsive">
+                                        <table  class="table">
+                                            <thead class="table-dark">
+                                                <tr>
+                                                    <th scope="col">Type</th>
+                                                    <th scope="col">Pays</th>
+                                                    <th scope="col">Stack</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>{{ realisation.typeOfWork }}</td>
+                                                    <td>{{ realisation.country }}</td>
+                                                    <td>
+                                                        {% for key, stack in realisation.stack %}
+                                                            {{ stack }} 
+                                                        {% if (key + 1) < (realisation.stack|length) %}, {% endif %}
+                                                    {% endfor %}
+                                                    
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+
+                                    
+                                        <article class="col-lg-12">
+                                            <div class="card p-3 text-lg-center">
+                                                {{ realisation.technicalContent|raw }}
+                                            </div>
+                                        </article>
+
+
+
+
+                                    <div class="mt-40 text-center"> 
+                                        <a class="btn bg-secondary text-white shadow mx-2" href="{{ path('app_realisation_detail', {'id': listId[precedent]})}}">
+                                        <i class="lnr lnr-arrow-left"></i> Précédent
+                                        </a> 
+                                        <a class="btn bg-secondary text-white shadow mx-2" href="{{ path('app_realisation_detail', {'id': listId[suivant]})}}">
+                                        Suivant <i class="lnr lnr-arrow-right"></i>
+                                        </a> 
+                                    </div>
+
+                                
+                                </section>
+
+                            </div>
+                            <!--Blog Content End-->
+                                    
+
+                            
+
+                        </div>
+                    </div>
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -308,7 +276,7 @@ img {
 
 
                 
-                
+
                 
                 </div>
             </div>
