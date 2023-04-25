@@ -27,6 +27,9 @@ class Portfolio
     #[ORM\ManyToOne(inversedBy: 'portfolios')]
     private ?PortfolioClass $portfolioClass = null;
 
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $url = null;
+
     public function __construct()
     {
         $this->portfolioTags = new ArrayCollection();
@@ -94,6 +97,18 @@ class Portfolio
     public function setPortfolioClass(?PortfolioClass $portfolioClass): self
     {
         $this->portfolioClass = $portfolioClass;
+
+        return $this;
+    }
+
+    public function getUrl(): ?string
+    {
+        return $this->url;
+    }
+
+    public function setUrl(?string $url): self
+    {
+        $this->url = $url;
 
         return $this;
     }

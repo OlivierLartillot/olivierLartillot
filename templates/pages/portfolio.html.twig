@@ -31,7 +31,13 @@
             {% for portfolio in portfolios %}
             <div class="item col-lg-4 col-sm-6 
             {% for key,tag in portfolio.portfolioTags %}{{ tag.slug }} {% endfor %}">
-                <a class="{{ portfolio.portfolioClass }}" href="img/portfolio/{{ portfolio.image }}">
+                <a class="{{ portfolio.portfolioClass }}" href=
+                    {% if portfolio.url %} 
+                        "videos/portfolio/{{ portfolio.url }}"
+                    {% else %}
+                        "img/portfolio/{{ portfolio.image }}"
+                    {% endif %}
+                >
                     <figure>
                         <img src="img/portfolio/{{ portfolio.image }}" alt="{{ portfolio.title }}">
                         <figcaption>

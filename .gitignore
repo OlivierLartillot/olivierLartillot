@@ -9,6 +9,10 @@
 /vendor/
 ###< symfony/framework-bundle ###
 
+###> les videos pour portfolio a gérer avec le ftp ###
+/public/videos/portfolio/*
+###< les videos pour portfolio a gérer avec le ftp ###
+
 ###> phpunit/phpunit ###
 /phpunit.xml
 .phpunit.result.cache
