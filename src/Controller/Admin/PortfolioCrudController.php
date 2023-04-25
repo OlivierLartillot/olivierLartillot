@@ -27,14 +27,21 @@ class PortfolioCrudController extends AbstractCrudController
         $package = new Package(new EmptyVersionStrategy());
 
         // gestion local en env dev ou ligne prod
-
+        //* Gestion des photos et videos */
         if ($_ENV['APP_ENV']  == 'dev' ){
             $uploadPath = $package->getUrl('public\img\portfolio\\');  
         } else{
             $uploadPath = $package->getUrl('public/img/portfolio/');  
         }
-
         $path = $package->getUrl('/img/portfolio/');
+
+        //* Gestion des videos */
+        if ($_ENV['APP_ENV']  == 'dev' ){
+            $uploadVideosPath = $package->getUrl('public\videos\portfolio\\');  
+        } else{
+            $uploadVideosPath = $package->getUrl('public/videos/portfolio/');  
+        }
+        $videoPath = $package->getUrl('/videos/portfolio/');
 
 
 
@@ -48,6 +55,8 @@ class PortfolioCrudController extends AbstractCrudController
                                           ->setRequired($pageName !== Crud::PAGE_EDIT) 
                                           ->setFormTypeOptions($pageName == Crud::PAGE_EDIT ? ['allow_delete' => false] : []), 
             yield AssociationField::new('portfolioClass', 'class'),
+            yield ImageField::new('url', 'Vidéo')->setUploadDir($uploadVideosPath)->setBasePath($videoPath),
+                                          
             yield AssociationField::new('portfolioTags', 'class'),
         ];
     }
