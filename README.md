@@ -8,7 +8,7 @@ Actuellement freelance je me perfectionne de jour en jour au travers de projets 
 
 Je me définirais comme full-stack avec une appétence pour le back. 
 
-Mon site de présentation est disponible ici : <a href="http://olivierlartillot.fr/" target="blank">olivierlartillot.fr</a>
+Mon site de présentation est disponible ici : <a href="http://olivierlartillot.fr/" target="_blank">olivierlartillot.fr</a>. Ce site servant uniquement de présentation je n'ai pas pour le moment raccorder de certificat ssl.
 
 ## Stack favori:
 - php
