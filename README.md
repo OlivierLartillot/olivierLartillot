@@ -8,6 +8,8 @@ Actuellement freelance je me perfectionne de jour en jour au travers de projets 
 
 Je me définirais comme full-stack avec une appétence pour le back. 
 
+Mon site de présentation est disponible ici : <a href="http://olivierlartillot.fr/" target="blank">olivierlartillot.fr</a>
+
 ## Stack favori:
 - php
 - html
@@ -16,6 +18,7 @@ Je me définirais comme full-stack avec une appétence pour le back.
 - Bootstrap
 - git / github
 - mysql
+- adaptation de thème html
 
 ## Stack secondaire:
 - linux
@@ -25,4 +28,5 @@ Je me définirais comme full-stack avec une appétence pour le back.
 - Laravel
 - Json
 - Api
+
 
